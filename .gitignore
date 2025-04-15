@@ -1,0 +1,4 @@
+# ignore work directories with nested repositories
+/myplugins/
+/mythemes/
+/uploads/
