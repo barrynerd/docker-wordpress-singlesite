@@ -29,6 +29,22 @@ services:
     volumes:
       - db:/var/lib/mysql
 
+  wpcli:
+      image: wordpress:cli
+      depends_on:
+        - wordpress
+      volumes:
+        - wordpress:/var/www/html
+      environment:
+        WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+        WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+        WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+        WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+        WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
+        WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
+      entrypoint: wp
+    
+
 volumes:
   wordpress:
   db:
