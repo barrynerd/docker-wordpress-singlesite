@@ -1,5 +1,11 @@
 # ignore work directories with nested repositories
-/myplugin/
-/mytheme/
-/uploads/
+
+# exclude everything except compose.yml
+# and .env
+# and .env.example
+
+/*
+!.env
+!.env.example
+!/compose.yml
 
