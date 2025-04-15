@@ -4,6 +4,6 @@
 # and .env
 
 /*
-!.env
+.env
 !/compose.yml
 
