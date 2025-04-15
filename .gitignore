@@ -2,7 +2,6 @@
 
 # exclude everything except compose.yml
 # and .env
-# and .env.example
 
 /*
 !.env
