@@ -7,4 +7,7 @@
 .env
 !/compose.yml
 !/compose.override.yml
+!Makefile
+!setup.sh
+
 
