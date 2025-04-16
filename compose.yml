@@ -35,9 +35,11 @@ services:
   wpcli:
       image: wordpress:cli
       depends_on:
-        - wordpress
+        - db
       volumes:
         - wordpress:/var/www/html
+        - wp_content:/var/www/html/wp-content
+
       environment:
         WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
         WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
