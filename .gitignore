@@ -1,5 +1,4 @@
-# ignore work directories with nested repositories
-
+#ignore files with secrets
 .env
 
 
