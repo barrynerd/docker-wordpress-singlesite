@@ -1,0 +1,18 @@
+WORDPRESS_DB_HOST="db"
+WORDPRESS_DB_USER="singlesite_user"
+WORDPRESS_DB_PASSWORD="db-password"
+WORDPRESS_DB_NAME="wordpress_singlesite"
+WORDPRESS_TABLE_PREFIX="wp_"
+WORDPRESS_DEBUG="false"
+
+WP_URL="http://localhost:8000"
+WP_TITLE="Example Site"
+WP_ADMIN_USER="barry"
+WP_ADMIN_PASSWORD="admin-password"
+WP_ADMIN_EMAIL=bcaplan@gmail.com
+
+WORDPRESS_PORT=8000
+WORDPRESS_DB_PORT=3306
+PMA_PORT=8001
+DB_PORT=3306
+
