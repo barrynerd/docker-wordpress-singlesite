@@ -6,7 +6,7 @@ services:
     depends_on:
       - db
     ports:
-      - 8080:80
+      - ${WORDPRESS_PORT}:80
     volumes:
       - wordpress:/var/www/html
       - wp_content:/var/www/html/wp-content
@@ -25,9 +25,9 @@ services:
     image: mariadb:lts
     restart: always
     environment:
-      MYSQL_DATABASE: exampledb
-      MYSQL_USER: exampleuser
-      MYSQL_PASSWORD: examplepass
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
+      MYSQL_USER: ${WORDPRESS_DB_USER}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - db:/var/lib/mysql
@@ -48,6 +48,19 @@ services:
         WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
         WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
       entrypoint: wp
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-${COMPOSE_PROJECT_NAME}
+    depends_on:
+      - db
+    ports:
+      - "${PMA_PORT}:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: ${DB_PORT}
+      PMA_ARBITRARY: 1
+      PMA_USER: ${WORDPRESS_DB_USER}
+      PMA_PASSWORD: ${WORDPRESS_DB_PASSWORD}
     
 
 volumes:
