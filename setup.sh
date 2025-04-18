@@ -31,6 +31,8 @@ else
 fi
 
 # Set WordPress options after installation
+# These are already set, but you can uncomment them if you want to change them 
+# or use as a model for other changes 
 # docker compose run --rm wpcli option update siteurl "${WP_URL}"
 # docker compose run --rm wpcli option update home "${WP_URL}"
 
