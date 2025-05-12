@@ -1,4 +1,6 @@
 #ignore files with secrets
 .env
 
+wordpress/
+
 
