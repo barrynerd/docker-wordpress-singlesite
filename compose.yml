@@ -37,22 +37,22 @@ services:
     volumes:
       - db:/var/lib/mysql
 
-  # wpcli:
-  #     image: wordpress:cli
-  #     depends_on:
-  #       - db
-  #     volumes:
-  #       - wordpress:/var/www/html
-  #       - wp_content:/var/www/html/wp-content
+  wpcli:
+      image: wordpress:cli
+      depends_on:
+        - db
+      volumes:
+      - ./wordpress:/var/www/html
+        # - wp_content:/var/www/html/wp-content
 
-  #     environment:
-  #       WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
-  #       WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
-  #       WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
-  #       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
-  #       WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
-  #       WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
-  #     entrypoint: wp
+      environment:
+        WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+        WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+        WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+        WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+        WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
+        WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
+      entrypoint: wp
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin-${COMPOSE_PROJECT_NAME}
