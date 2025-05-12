@@ -11,7 +11,7 @@ services:
     volumes:
       - ./wordpress:/var/www/html
       - ./enable-ssl.sh:/usr/local/bin/enable-ssl.sh
-      - ./certs:/etc/apache2/ssl:ro
+      - ~/certs:/etc/apache2/ssl:ro
       - ./apache-conf/ssl.conf:/etc/apache2/sites-available/ssl.conf:ro
       # # - wp_content:/var/www/html/wp-content
     
