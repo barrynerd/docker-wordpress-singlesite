@@ -1,4 +1,10 @@
 #ignore files with secrets
 .env
 
+wordpress/
+
+# Ignore certificates
+*.crt
+*.key
+
 

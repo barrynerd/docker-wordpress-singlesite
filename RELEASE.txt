@@ -1,5 +1,6 @@
 Release notes:
-
+1.0.3
+    - add self signed certs so we can test ssl in browser
 1.0.2
     - add README.md for github
     - add LICENSE file (MIT)
