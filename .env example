@@ -3,7 +3,7 @@ WORDPRESS_DB_USER="singlesite_user"
 WORDPRESS_DB_PASSWORD="db-password"
 WORDPRESS_DB_NAME="wordpress_singlesite"
 WORDPRESS_TABLE_PREFIX="wp_"
-WORDPRESS_DEBUG="false"
+WORDPRESS_DEBUG=0
 
 WP_URL="http://localhost:8000"
 WP_TITLE="Example Site"
