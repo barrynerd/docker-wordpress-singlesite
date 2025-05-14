@@ -19,4 +19,18 @@ DB_PORT=3306
 SSL_CERT_FILE=/etc/apache2/ssl/wordpress.crt
 SSL_KEY_FILE=/etc/apache2/ssl/wordpress.key
 
+# feature flags
+
+# set to true to install plugins
+# set to false to skip plugin installation
+# this is a feature flag, so it can be set to true or false
+# in the .env file or in the docker-compose.yml file
+# the value in the .env file will take precedence
+
+# must be lowercase
+INSTALL_PLUGINS=true
+INSTALL_PLUGINS_FILE=plugins_to_install.txt
+INSTALL_PLUGINS_SHOW_COMMENTS=true
+
+
 

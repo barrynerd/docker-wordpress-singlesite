@@ -1,0 +1,4 @@
+# these are plugins to install
+# this file must end with a newline in order to pick up the last item
+woocommerce
+woocommerce-gateway-stripe
