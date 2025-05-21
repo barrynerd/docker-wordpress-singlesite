@@ -9,7 +9,9 @@ source .env
 set +a
 
 echo "🔄 Waiting for the database to be ready..."
-until docker compose run --rm wpcli db check > /dev/null 2>&1; do
+# until docker compose run --rm wpcli db check > /dev/null 2>&1; do
+until docker compose run --rm wpcli db check ; do
+
   sleep 2
 done
 
@@ -47,34 +49,11 @@ fi
 echo "✅ Plugin installation completed."
 
 
-if docker compose run --rm wpcli core is-installed; then
-  echo "✅ WordPress is already installed."
-else 
-  echo "🚀 Installing WordPress..."
-  echo "email:"
-  echo $WORDPRESS_DB_USER
-  echo "-------------"
-  docker compose run --rm wpcli core install \
-    --url="${WP_URL}" \
-    --title="${WP_TITLE}" \
-    --admin_user="${WP_ADMIN_USER}" \
-    --admin_password="${WP_ADMIN_PASSWORD}" \
-    --admin_email="${WP_ADMIN_EMAIL}"
-fi
-
 # Set WordPress options after installation
 # These are already set, but you can uncomment them if you want to change them 
 # or use as a model for other changes 
-# docker compose run --rm wpcli option update siteurl "${WP_URL}"
-# docker compose run --rm wpcli option update home "${WP_URL}"
-
-echo "✅ WordPress installation completed."
-
-# Set WordPress options after installation
-# These are already set, but you can uncomment them if you want to change them 
-# or use as a model for other changes 
-# docker compose run --rm wpcli option update siteurl "${WP_URL}"
-# docker compose run --rm wpcli option update home "${WP_URL}"
+docker compose run --rm wpcli option update siteurl "${WP_URL}"
+docker compose run --rm wpcli option update home "${WP_URL}"
 
 echo "✅ WordPress installation completed."
 
