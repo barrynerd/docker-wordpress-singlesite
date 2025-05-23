@@ -31,6 +31,6 @@ SSL_KEY_FILE=/etc/apache2/ssl/wordpress.key
 INSTALL_PLUGINS=true
 INSTALL_PLUGINS_FILE=plugins_to_install.txt
 INSTALL_PLUGINS_SHOW_COMMENTS=true
-
+INSTALL_WOOCOMMERCE=true
 
 
