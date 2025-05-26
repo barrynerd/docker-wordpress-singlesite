@@ -18,27 +18,3 @@ if (class_exists('WooCommerce')){
     add_filter('woocommerce_admin_disabled', '__return_true');
     add_filter('woocommerce_enable_setup_wizard', '__return_false');
 }
-/**
- * Directly update the woocommerce_onboarding_profile option to skip the wizard.
- * This is crucial if the wizard checks DB state before or regardless of filters.
- */
-function my_custom_skip_woo_onboarding()
-{
-    $wc_option       = 'woocommerce_onboarding_profile';
-    $skip_onboarding = array(
-        'skipped' => true,
-    );
-    $profile         = (array) get_option($wc_option, array());
-
-    // Only update if 'skipped' is not already true to avoid unnecessary DB writes
-    if (!isset($profile['skipped']) || $profile['skipped'] !== true) {
-        update_option($wc_option, array_merge($profile, $skip_onboarding));
-        error_log('*** DEBUG: woocommerce_onboarding_profile option set to skipped! ***');
-    } else {
-        error_log('*** DEBUG: woocommerce_onboarding_profile already skipped. ***');
-    }
-}
-
-# Hook the function to run as early as possible after plugins are loaded.
-# Priority 1 is very early.
-// add_action('plugins_loaded', 'my_custom_skip_woo_onboarding', 1);
