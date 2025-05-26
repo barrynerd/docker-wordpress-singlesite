@@ -66,20 +66,15 @@ echo "✅ Plugin installation completed."
 
 # --- WooCommerce Setup ---
 if [ "$INSTALL_WOOCOMMERCE" == "true" ] ; then
-  echo "🚀 Configuring WooCommerce initial settings..."
-
-  # IMPORTANT: Configure WooCommerce after it's installed and activated.
-  echo "🚀 Configuring WooCommerce onboarding profile..."
-  WOO_ONBOARDING_PROFILE_JSON='{"skipped":true}'
-  docker compose run --rm wpcli option update woocommerce_onboarding_profile "$WOO_ONBOARDING_PROFILE_JSON" --format=json --autoload=no
-  ONBOARDING_EXIT_CODE=$?
-  if [ ${ONBOARDING_EXIT_CODE} -eq 0 ]; then
-    echo "✅ WooCommerce onboarding profile set to skipped."
-  else
-    echo "❌ Failed to set WooCommerce onboarding profile. Exit code: ${ONBOARDING_EXIT_CODE}."
+  echo "📦 Attempting to configure WooCommerce..."
+  # Call the dedicated WooCommerce setup script
+  # Make sure the path is correct relative to where setup.sh is run
+  ./scripts/configure-woocommerce.sh
+  WOO_SETUP_EXIT_CODE=$?
+  if [ ${WOO_SETUP_EXIT_CODE} -ne 0 ]; then
+    echo "❌ WooCommerce initial configuration failed. Aborting."
+    exit ${WOO_SETUP_EXIT_CODE} # Propagate the error code
   fi
-
-  echo "✅ WooCommerce initial configuration completed."
 else
   echo "🚫 Skipping WooCommerce initial configuration."
 fi
