@@ -65,7 +65,7 @@ fi
 echo "✅ Plugin installation completed."
 
 # --- WooCommerce Setup ---
-if [ "$INSTALL_WOOCOMMERCE" == "true" ] ; then
+if [ "$CONFIGURE_WOOCOMMERCE" == "true" ] ; then
   echo "📦 Attempting to configure WooCommerce..."
   # Call the dedicated WooCommerce setup script
   # Make sure the path is correct relative to where setup.sh is run
