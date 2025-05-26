@@ -9,10 +9,10 @@ FROM wordpress:latest
 
 # Copy your custom scripts and Apache configurations into this new image.
 # This makes your custom setup part of the image itself, which is cleaner.
-COPY ./enable-ssl.sh /usr/local/bin/enable-ssl.sh
-COPY ./install-packages.sh /usr/local/bin/install-packages.sh
-COPY ./apache-conf/ssl.conf /etc/apache2/sites-available/ssl.conf
-COPY ./apache-conf/ssl.conf.template /etc/apache2/sites-available/ssl.conf.template
+COPY ./scripts/enable-ssl.sh /usr/local/bin/enable-ssl.sh
+COPY ./scripts/install-packages.sh /usr/local/bin/install-packages.sh
+COPY ./scripts/apache-conf/ssl.conf /etc/apache2/sites-available/ssl.conf
+COPY ./scripts/apache-conf/ssl.conf.template /etc/apache2/sites-available/ssl.conf.template
 
 # Make sure your scripts are executable.
 RUN chmod +x /usr/local/bin/enable-ssl.sh \

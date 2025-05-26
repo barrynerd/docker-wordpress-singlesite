@@ -7,7 +7,7 @@ up:
 
 init:
 	@echo "🔧 Running WordPress (multisite) install (only if needed)..."
-	./setup.sh
+	./scripts/setup.sh
 
 install: up init
 

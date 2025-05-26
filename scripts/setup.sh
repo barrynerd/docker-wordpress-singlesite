@@ -42,7 +42,7 @@ echo "✅ WordPress installation completed."
 
 if [ "$INSTALL_PLUGINS" ] ; then
   echo "🚀 Installing plugins..."
-  ./plugins_install.sh
+  ./scripts/plugins_install.sh
 else
   echo "🚫 Skipping plugin installation."
 fi
