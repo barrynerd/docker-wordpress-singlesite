@@ -14,6 +14,9 @@ COPY ./scripts/install-packages.sh /usr/local/bin/install-packages.sh
 COPY ./scripts/apache-conf/ssl.conf /etc/apache2/sites-available/ssl.conf
 COPY ./scripts/apache-conf/ssl.conf.template /etc/apache2/sites-available/ssl.conf.template
 
+# Copy your mu-plugins into this new image.
+COPY ./mu-plugins/skip-woo-onboarding.php /var/www/html/wp-content/mu-plugins/skip-woo-onboarding.php
+
 # Make sure your scripts are executable.
 RUN chmod +x /usr/local/bin/enable-ssl.sh \
     /usr/local/bin/install-packages.sh
