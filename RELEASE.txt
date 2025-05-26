@@ -1,4 +1,6 @@
 Release notes:
+1.0.5
+    - refactor container build process
 1.0.4
     - bring .env.example up to date
 1.0.3
