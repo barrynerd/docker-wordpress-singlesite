@@ -1,5 +1,5 @@
 Release notes:
-1.0.5
+1.0.5 
     - refactor container build process
     - add development-oriented plugins
 1.0.4
