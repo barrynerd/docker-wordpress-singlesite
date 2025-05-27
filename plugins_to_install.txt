@@ -2,3 +2,14 @@
 # this file must end with a newline in order to pick up the last item
 woocommerce
 woocommerce-gateway-stripe
+query-monitor
+wp-crontrol
+user-switching
+wp-mail-logging
+force-regenerate-thumbnails
+advanced-custom-fields
+developer
+rewrite-rules-inspector
+log-deprecated-notices
+custom-post-type-ui
+
